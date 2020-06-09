@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Menu-fixed</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <===================================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.css">
+	<!-- <==========================================================> -->
+	
+	<!-- <===================================================================> -->
+	
+	<!-- <===================================================================> -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<!-- <=======================================================> -->
+	
+	<!-- <======================================> -->
+	<!-- <link rel="icon" type="image/gif" href="your_icon"> -->
+	
+	<style>
+		.menu-text{
+			font-family: Montserrat;
+			font-size: 16px;
+			color: rgba(153, 153, 150, 1);
+		}
+		.header-line{
+			background: rgba(255, 255, 225, 1);
+			line-height: 40px;
+			display: flex;
+			flex-direction: row;
+
+		}
+		@media(max-width: 576px){
+			.header-line{
+				line-height: 20px;
+			}
+		}
+
+		@media(max-width: 992px){
+			.header-menu,.logo,.header-menu-wrap{
+				/* display: flex;
+				flex-direction: row;
+				align-items: center; */
+				float: none;
+				display: flex;
+				justify-content: center;
+				
+			}
+			.logo{padding-bottom: 16px;}		
+		}
+		.header-menu{
+			/* display: flex;
+			flex-direction: row;
+			align-items: center; */
+			float: right;
+			
+		}		
+		ul{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		a:hover{text-decoration: none;	}
+		.header-menu  >li {
+			float: left;
+			padding-right: 25px;
+		}
+		.header-menu  >li a{
+			color: #535353;
+			text-transform: uppercase;
+			font-size: 16px;
+
+		}
+		.header-wrap-menu{
+			padding-top: 20px;
+		}
+		.menu-fixed{
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 9900;
+			background: rgba(204, 204, 0, 0.953);
+			max-height: 70px;
+		}
+		.p-l-5{padding-left: 15px;}
+		.fs12{font-size: 26px;}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">	
+		<div class="row header-line">	
+			<div class="col-lg-4 col-md-4">
+				<div>
+					<i class="fa fa-angle-down fs12"></i>
+					<span class="menu-text p-l-5">(09)34 646 892</span>
+				</div>
+
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<i class="fa fa-angle-right fs12 "></i>
+				<span class="menu-text p-l-5"> Cầu chui số 6</span>
+			</div>
+			<div class="col-lg-4 col-md-4">
+				<i class="fa fa-angle-up fs12 "></i>
+				<span class="menu-text p-l-5"> 24h /7</span>
+			</div>
+		</div>
+	</div>
+	<header>
+		<div class="container-fluid">
+			
+			<div class="row header-wrap-menu" style="background: #ddd;padding-bottom: 20px;">
+				<div class="col-lg-2 logo">
+					<a href=""><img src="../images/icons/logo2.png" alt=""></a>
+				</div>
+				<div class="col-lg-10">
+					<div class="header-menu-wrap" >
+						<ul class="header-menu">
+							<li><a href="">Home</a></li>
+							<li><a href="">Menu</a></li>
+							<li><a href="">Store</a></li>
+							<li><a href="">Reservation</a></li>
+							<li><a href="">Blog</a></li>	
+							<li><a href="">Contact</a></li>
+						</ul>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</header>
+	<div style="height: 800px;background: rgba(153, 153, 102, 0.906); " ></div>
+	<div style="height: 800px;background: rgba(100, 206, 102, 0.906); "  ></div>
+
+
+
+	
+
+
+	<script src="../bootstrap/js/jquery-3.4.1.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			var header=$('header')
+			$(window).on('scroll',function(){
+				if($(this).scrollTop()>100&& $(this).width()>576){
+					$(header).addClass("menu-fixed");
+				}
+				else{
+					$(header).removeClass("menu-fixed");
+				}
+			})
+		})
+	</script>
+	
+
+	
+
+</body>
+</html>
+<!-- 74 Title Page -->
+

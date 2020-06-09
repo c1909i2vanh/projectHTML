@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="GalleryApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Gallery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <===================================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.css">
+	<!-- <==========================================================> -->
+	<link rel="stylesheet" type="text/css" href="../fonts/themify/themify-icons.css">
+	<!-- <=====================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/owl.carousel.min.css">
+	<!-- <========================================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/owl.theme.default.min.css">
+	<!-- <===================================================================> -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- <=======================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/main.css">
+	<!-- <======================================> -->
+	<!-- <link rel="icon" type="image/gif" href="your_icon"> -->
+	<link rel="stylesheet" href="../vendor/lightbox2/css/lightbox.min.css">
+	<style>
+		 .modal{
+			position: fixed;
+			top: 20%;
+			
+		} 
+		.bg-gallery-page{
+	 background-image: url('../images/bg-event-02.jpg'); 
+	/* background: blue; */
+	min-height: 55px;
+	width: 100%;
+	 background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200px;
+  padding-bottom: 60px;
+}
+.gallery-iput{
+	width: 600px;
+	margin: 20px ;
+	margin-left: 100px;
+}
+
+	</style>
+</head>
+<body ng-controller="GalleryCtrl">
+	
+	<!-- Sidebar -->
+	
+	<!-- Section -->
+	
+
+	<!-- Main-menu -->
+	
+	<!-- Lunch -->
+
+	<!-- Section LUnch -->
+	
+
+	<!-- DINNER 413 -->
+		
+	<!-- 	menu after dinner -->
+
+	<!-- SIgn-up -->
+	
+	<div class="gallery-iput">
+		<div><h2> Nhập tên để tìm kiếm</h2>	
+		<input type="text" name="" id="" ng-model="keySearch">
+		<button class="btn btn-dark" ng-click="showCart()"> Xem giỏ hàng</button>
+
+
+		</div>
+	</div>
+
+	<div class="container-fluid  main-menu p-t-30 ">	
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-6  m-b-12" ng-repeat="i in list |filter:keySearch">
+					
+			
+						<div class=" m-b-12  ">
+							<a href=""><img ng-src="{{i.Image}}"src="" class="img-fluid item-zoom meal-img" alt=""></a>
+						</div>
+			
+						<div class=" m-l-5 text-center">
+							<a href="#!detailsProduct/{{i.Id}}" class=" m-b-5" ng-click=""><h6>{{i.Name}}</h6></a>
+							<h4 class=" m-b-5"> Giá : {{i.Price |currency:$ }}</h4>
+							<button class="btn btn-primary" ng-click="details(i)"> Xem chi tiết</button>
+							<button class="btn btn-success " ng-click="addCarts(i)">Add to cart</button>
+			
+						</div>
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	
+	<div class="modal fade" id="modal-gallery">
+		<div class="modal-dialog modal-md" role="document">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<h4 class="modal-title">Chi tiết sản phẩm</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-6">
+							<img ng-src="{{Info.Image}}" src="" alt="">
+						</div>
+						<div class="col-lg-6">
+							<h4 >{{Info.Name}}</h4>
+							<h4>{{Info.Price}}</h4>
+						</div>
+					</div>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div class="modal fade" id="modal-Cart">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content ">
+				<div class="modal-header">
+					<h4 class="modal-title">Thông tin giỏ hàng</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					
+				</div>
+				<div class="modal-body">
+					<table class="table table-bordered">
+						<tr>
+							<th>Tên sản phẩm</th>
+							<th>Đơn giá</th>
+							<th>Số lượng</th>
+							<th>Thành tiền</th>
+							<th></th>
+						</tr>
+						<tr ng-repeat="c in carts track by $index">
+							<td>{{c.product.Name}}</td>
+							<td>{{c.product.Price|currency:"$"}}</td>
+							<td>{{c.quantity}}</td>
+							<td>{{c.quantity*c.product.Price |currency:"$"}}</td>
+							<td><button class="btn btn-danger" ng-click="remove(c.product.Id)">Remove</button></td>
+						</tr>
+					</table>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- bACK TO TOP -->
+	<div class="btn-back-to-top" id="btnBack">
+		<button><span class="symbol-back-to-top">	
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i></span>
+		</button> 
+	</div>
+
+	<script src="../bootstrap/js/jquery-3.4.1.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../bootstrap/js/owl.carousel.min.js"></script>
+	 <script src="../bootstrap/js/style2.js"></script> 
+	<script src="../vendor/lightbox2/js/lightbox.min.js"></script>
+	<script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> </script>
+	<script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"> </script>
+	<!-- <script src="../bootstrap/js/style2.js"></script> -->
+	<script>
+		var app=angular.module("GalleryApp",[]);
+		app.controller("GalleryCtrl",function($scope){
+
+			 $scope.items=[
+			 {Name:"SED VARIUS",Image:"../images/lunch-01.jpg",Price:12.75 },
+			 {Name:"TEMPUS ALIQUET",Image:"../images/lunch-02.jpg",Price:22.75 },
+			 {Name:"DUIS MASSA",Image:"../images/lunch-03.jpg",Price:34.75 },
+			 {Name:"SBRISALONA",Image:"../images/lunch-04.jpg",Price:75.75 },
+			 {Name:"CRAS EGET MAGNA",Image:"../images/lunch-05.jpg",Price:89.75 },
+			 {Name:"NULLAM MAXIMUS",Image:"../images/lunch-06.jpg",Price:62.75 },
+			 {Name:"MAECENAS TRISTIQUE",Image:"../images/dinner-01.jpg",Price:21.75 },
+			 {Name:"PINE NUT SBRISALONA",Image:"../images/dinner-02.jpg",Price:24.75 },
+			 {Name:"SUSPENDISSE EU",Image:"../images/dinner-03.jpg",Price:37.75 },
+			 {Name:"CRAS MAXIMUS",Image:"../images/dinner-04.jpg",Price:86.75 },
+			 {Name:"PINE NUT SBRISALONA",Image:"../images/dinner-05.jpg",Price:68.75 },
+			 {Name:"TEMPOR MALESUADA",Image:"../images/dinner-06.jpg",Price:80.75 }
+
+			 ]
+			$scope.details=function(item){
+				$("#modal-gallery").modal("show");
+				$scope.Info=item;
+			}
+		})
+	</script>
+</body>
+</html>
+<!-- 74 Title Page -->
+

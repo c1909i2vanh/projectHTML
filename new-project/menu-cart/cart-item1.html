@@ -1,0 +1,151 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cart-item1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <===================================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../fonts/font-awesome-4.7.0/css/font-awesome.css">
+	<!-- <==========================================================> -->
+	<link rel="stylesheet" type="text/css" href="../fonts/themify/themify-icons.css">
+	<!-- <=====================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/owl.carousel.min.css">
+	<!-- <========================================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/owl.theme.default.min.css">
+	<!-- <===================================================================> -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+	<!-- <=======================================================> -->
+	<link rel="stylesheet" href="../bootstrap/css/main.css">
+	<!-- <======================================> -->
+	<!-- <link rel="icon" type="image/gif" href="your_icon"> -->
+	<link rel="stylesheet" href="../vendor/lightbox2/css/lightbox.min.css">
+</head>
+<body>
+	
+		
+	
+
+	<!-- Main-menu -->
+	
+
+	<!-- Lunch --> 	
+
+	<!-- Section LUnch <-->
+	<div class="" style="height: 100px"></div>
+	<div class=" container-fluid bg1-pattern " >
+		<div class="cart-container ">
+			
+			<div class="cart-row  m-b-25 p-t-10">
+				<div  class=" new-cart-image img-fluid">
+					<h1 class=" txt21 m-b-12">Bảng mua hàng online</h1>
+					<a href="#"><img src="../images/lunch-01.jpg"  alt=""></a>
+				</div>			
+				<div class=" new-cart-info p-l-18">		
+
+					<a href="#" class="tit-mainmenu ">Sedvarius</a>	
+					<span class="txt21 ">Sa lát nhung biển</span>
+					<span class="txt16 "> Được nấu từ thành phần tươi sống 100% qua bàn tay của những đầu bếp tài hoa</span>		
+				</div>
+				<div class="new-cart-price">
+					<div class="m-b-12">Price</div>			
+					<span class="item-price">29.79</span>
+
+				</div>	
+				<div class="new-cart-quantity ">	
+					<div class="m-b-12">Quantity</div>
+					<input class="cart-input " type="number" value="1" min="1" >					
+				</div>
+				<div class="new-cart-remove">
+					<div class="m-b-12">&nbsp;</div>
+					<button class="btn-cart">Remove</button>
+				</div>	
+				<div class="new-cart-total">
+					<div class="m-b-12">Total</div>
+					<!-- <p>Total</p> -->
+					<div class="total-price">29.79</div>
+				</div>
+				
+				
+			</div>
+
+			<div class="cart-row totals">
+				<div class="cart-off">
+				&nbsp;
+				</div>
+				<div class="control-label">
+					<label class="txt14" for="">Giá</label>
+				</div>
+				<div class="totals-price">
+
+					<div id="totals-value" class="totals-item">
+
+						<div class=" control-value totals-value" id="cart_subtotal">29.79</div>
+					</div>
+				</div>
+			</div>
+			<div class="cart-row totals">
+				<div class="cart-off">
+				&nbsp;
+				</div>
+				<div class="control-label">
+					<label  class="txt14" for="" id="cart_shipping">Phí ship</label>
+				</div>
+				<div class="totals-price">
+
+					<div id="totals-value" class="totals-item">
+
+						<div class=" control-value totals-value">10</div>
+					</div>
+				</div>
+			</div>
+			<div class="cart-row totals">
+				<div class="cart-off">
+				&nbsp;
+				</div>
+				<div class="control-label">
+					<label class="txt14" for="" id="cart_grandtotal">Tổng hóa đơn</label>	
+				</div>
+				<div class="totals-price">
+
+					<div id="totals-value" class="totals-item">
+
+						<div class=" control-value totals-value">39.79</div>
+					</div>
+				</div>
+			</div>
+		</div>					
+	</div>
+	<div class="container-fluid bg1-pattern sign-up" >	
+			<div class="  flex-c-m flex-w  flex-col-c-m-lg   ">
+				<div class="m-10 txt5 m-r-5">Your phone </div>
+				<div class="m-10 sign-inp"> <input type="text" class="sg-input" id="">
+					<i class="fa fa-envelope sign-icon"></i>
+				</div>
+				<div class=" m-10 m-l-17"><button class="size18 btn" id="btn_cart">SIGN UP</button></div>			
+			</div>		
+		</div>
+
+
+	
+	<script src="../bootstrap/js/jquery-3.4.1.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../bootstrap/js/owl.carousel.min.js"></script>
+	<script src="../bootstrap/js/style2.js"></script>
+	<script src="../vendor/lightbox2/js/lightbox.min.js"></script>
+	<script>
+		$(function(){
+			$("#btn_cart").click(function(){	
+				var cart_ip=$(".sg-input").val();
+				var regex_ip=/^(09|07|06|05|03)[\d]{8}$/;
+				cart_ip==""? alert("điền số điện thoại") :regex_ip.test(cart_ip)?alert("Đặt món thành công\nChúng tôi sẽ sớm liên hệ với bạn "):alert("vui lòng nhập đúng sdt")
+			})
+			
+				
+		})
+	</script>
+</body>
+</html>
+
+
